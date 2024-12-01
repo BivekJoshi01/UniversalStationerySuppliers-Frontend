@@ -68,23 +68,12 @@ const AdminLayout = () => {
         >
           <Box sx={{ padding: isMdScreen ? "1rem" : "1rem 2rem 2rem 2rem" }}>
             <CustomBreadCrumps />
-            <div style={{marginTop:"1rem"}}>
-            <Outlet />
-
+            <div style={{ marginTop: "1rem" }}>
+              <Outlet />
             </div>
           </Box>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "end",
-              backgroundColor: theme.palette.background.default,
-              minHeight: "100vh",
-              alignItems: "end",
-              width: "30px",
-            }}
-          >
-            <Settings />
-          </div>
+
+          <Settings handleOpenDrawer={handleOpenDrawer} />
         </Box>
 
         <Drawer
@@ -92,13 +81,13 @@ const AdminLayout = () => {
           anchor="left"
           onClose={handleCloseDrawer}
           PaperProps={{
-            sx: { width: "320px", padding: "1rem" },
+            sx: { width: "280px" },
           }}
         >
           <Grid
             container
             alignItems="center"
-            sx={{ gap: "0.6rem", marginBottom: "1rem" }}
+            sx={{ gap: "0.6rem", marginBottom: "1rem", padding: "12px" }}
           >
             <Typography variant="h6">Welcome</Typography>
           </Grid>
