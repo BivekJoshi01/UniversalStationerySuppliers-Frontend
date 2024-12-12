@@ -1,7 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import AdminDashborad from "../../pages/Dashboard/AdminDashboard/AdminDashborad";
 
-const Dashboard = () => <div>Dashboard Content</div>;
+const Dashboard = () => <AdminDashborad/>;
 const Item = () => <div>Settings Content</div>;
 const Order = () => <div>Profile Content</div>;
 const NotFound = () => <div>No Page Found</div>;

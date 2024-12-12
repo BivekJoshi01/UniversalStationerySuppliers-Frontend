@@ -41,16 +41,20 @@ export const tokensDark = {
     900: "#8a5000", // Your secondary color (#8a5000)
   },
   tertiary: {
-    // Green (Using #006e15 as tertiary color)
-    100: "#d3f1d4", // Manually adjusted
-    200: "#a6e3a8", // Manually adjusted
-    300: "#7ace7c", // Manually adjusted
-    400: "#4dbf50", // Manually adjusted
-    500: "#20b024", // Manually adjusted
-    600: "#1a901e", // Manually adjusted
-    700: "#137e17", // Manually adjusted
-    800: "#0d6d10", // Manually adjusted
-    900: "#076b0a", // Manually adjusted
+    50: "#4d2c00",
+    100: "#804f00",
+    200: "#b37300",
+    300: "#e69400",
+    400: "#ffa500",
+    500: "#ffb326",
+    600: "#ffc34d",
+    700: "#ffd580",
+    800: "#ffe5b3",
+    900: "#fff4e0",
+    a100: "#ffa500",
+    a200: "#ffc34d",
+    a400: "#ffd580",
+    a700: "#ffe5b3",
   },
   background: {
     10: "#06c5c0", // color design for button manually adding
@@ -96,20 +100,20 @@ const palette = {
     a700: "rgba(213, 0, 0, 1)",
   },
   primary: {
-    light: "rgba(6, 197, 192, 1)", // Base color for reference
-    dark: "rgba(0, 150, 140, 1)", // Slightly darker base color
-    50: "rgba(206, 240, 237, 1)", // Very light shade
-    100: "rgba(153, 217, 209, 1)", // Light shade
-    300: "rgba(98, 176, 165, 1)", // Medium shade
-    400: "rgba(72, 148, 136, 1)", // Slightly darker shade
-    500: "rgba(6, 197, 192, 1)", // Base color
-    600: "rgba(5, 174, 163, 1)", // Darker shade
-    800: "rgba(4, 146, 135, 1)", // Very dark shade
-    900: "rgba(3, 115, 105, 1)", // Almost black shade
-    a100: "rgba(84, 255, 247, 1)", // Bright accent
-    a200: "rgba(18, 242, 222, 1)", // Rich accent
-    a400: "rgba(6, 197, 192, 1)", // Same as base color
-    a700: "rgba(5, 174, 163, 1)", // Deep accent
+    light: "rgba(92, 122, 189, 1)",
+    dark: "rgba(33, 55, 111, 1)",
+    50: "rgba(228, 233, 247, 1)",
+    100: "rgba(194, 204, 233, 1)",
+    300: "rgba(116, 138, 200, 1)",
+    400: "rgba(80, 107, 174, 1)",
+    500: "rgba(45, 75, 151, 1)",
+    600: "rgba(41, 68, 136, 1)",
+    800: "rgba(33, 55, 111, 1)",
+    900: "rgba(25, 42, 85, 1)",
+    a100: "rgba(137, 163, 216, 1)",
+    a200: "rgba(92, 122, 189, 1)",
+    a400: "rgba(45, 75, 151, 1)",
+    a700: "rgba(41, 68, 136, 1)",
   },
 
   warning: {
@@ -178,16 +182,20 @@ const palette = {
     a700: "rgba(94.09, 0, 200.94, 1)",
   },
   tertiary: {
-    500: "rgba(133.11, 82.11, 61.97, 1)",
-    50: "rgba(255, 234.09, 221.08, 1)",
-    100: "rgba(233.07, 200.94, 187.93, 1)",
-    200: "rgba(204, 166, 152, 1)",
-    300: "rgba(176, 133, 116, 1)",
-    400: "rgba(156, 108, 90, 1)",
-    600: "rgba(121, 73, 56, 1)",
-    700: "rgba(104.04, 59.92, 44.88, 1)",
-    800: "rgba(90.01, 47.94, 39.01, 1)",
-    900: "rgba(74.97, 34.93, 28.05, 1)",
+    50: "#fff4e0", // Very light orange
+    100: "#ffe5b3", // Light orange
+    200: "#ffd580", // Medium-light orange
+    300: "#ffc34d", // Medium orange
+    400: "#ffb326", // Slightly lighter than the base
+    500: "#ffa500", // Base color (rgb(255, 165, 0))
+    600: "#e69400", // Slightly darker than the base
+    700: "#b37300", // Darker shade
+    800: "#804f00", // Much darker shade
+    900: "#4d2c00", // Almost black shade
+    a100: "#ffd580", // Bright accent (lighter tone)
+    a200: "#ffb326", // Vibrant accent (matches `400`)
+    a400: "#ffa500", // Same as the base color
+    a700: "#e69400", // Deep accent (matches `600`)
   },
 };
 

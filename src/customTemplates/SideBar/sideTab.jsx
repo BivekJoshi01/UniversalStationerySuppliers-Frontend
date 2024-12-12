@@ -20,32 +20,38 @@ import AspectRatioIcon from "@mui/icons-material/AspectRatio";
 import ReceiptIcon from "@mui/icons-material/Receipt";
 import BatchPredictionIcon from "@mui/icons-material/BatchPrediction";
 
-export const adminTab = [
-  { label: "Dashboard", value: "Dashboard" },
-  // { label: "Customer", value: "customer" },
-  { label: "Order", value: "Order" },
-  {
-    label: "Item",
-    value: "Item",
-    subTabs: [
-      {
-        // id: nanoid(),
-        label: "Cashier",
-        value: "Cashier",
-        // icon: <CurrencyExchangeRoundedIcon />,
-      },
-      {
-        // id: nanoid(),
-        label: "Barista",
-        value: "Barista",
-        // icon: <CoffeeMakerRoundedIcon />,
-      },
-      {
-        // id: nanoid(),
-        label: "Waiter",
-        value: "Waiter",
-        // icon: <WcRoundedIcon />,
-      },
-    ],
-  },
-];
+export const adminTab = {
+  menu: [
+    { label: "Dashboard", value: "Dashboard", icon: <BatchPredictionIcon /> },
+    { label: "Order", value: "Order", icon: <BatchPredictionIcon /> },
+    {
+      label: "Item",
+      value: "Item",
+      icon: <BatchPredictionIcon />,
+      subTabs: [
+        { label: "Cashier", value: "Cashier", icon: <BatchPredictionIcon /> },
+        { label: "Barista", value: "Barista", icon: <BatchPredictionIcon /> },
+        { label: "Waiter", value: "Waiter", icon: <BatchPredictionIcon /> },
+      ],
+    },
+  ],
+  setting: [
+    { label: "Settings", value: "Settings" },
+    {
+      label: "Management",
+      value: "Management",
+      subTabs: [
+        { label: "Roles", value: "Roles" },
+        { label: "Permissions", value: "Permissions" },
+      ],
+    },
+  ],
+  analytics: [
+    { label: "Reports", value: "Reports" },
+    { label: "Analytics", value: "Analytics" },
+  ],
+  others: [
+    { label: "Reports", value: "Reports" },
+    { label: "Analytics", value: "Analytics" },
+  ],
+};

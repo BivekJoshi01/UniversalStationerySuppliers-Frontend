@@ -38,7 +38,7 @@ export const themeSettings = (mode) => {
             },
             tertiary: {
               ...palette.tertiary,
-              main: palette.tertiary[700],
+              main: palette.tertiary[300],
             },
             neutral: {
               ...palette.surface,
@@ -52,6 +52,7 @@ export const themeSettings = (mode) => {
               btn: palette.surface[10],
               hover: palette.primary[600],
               opt: palette.surface[700],
+              discover: palette.primary[800],
             },
             text: {
               main: palette.surface["light"],
@@ -89,6 +90,7 @@ export const themeSettings = (mode) => {
               btn: palette.secondary[800],
               hover: palette.surface[100],
               opt: palette.surface["light"],
+              discover: palette.primary[800],
             },
             text: {
               main: palette.surface["dark"],

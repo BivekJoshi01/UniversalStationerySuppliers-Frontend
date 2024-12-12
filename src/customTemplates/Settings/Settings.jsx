@@ -1,13 +1,23 @@
-import { Grid, IconButton, useTheme } from "@mui/material";
+import {
+  Button,
+  Grid,
+  IconButton,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import { Brightness4, Brightness7 } from "@mui/icons-material";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { toogleDarkMode } from "../../redux/Slice/darkModeSlice";
 import { Fade } from "@mui/material";
 import { toast } from "react-toastify";
+import MenuIcon from "@mui/icons-material/Menu";
+import LightSwitch from "../../assets/Icons/LightSwitch.png";
+import DarkSwitch from "../../assets/Icons/DarkSwitch.png";
 
 const Settings = ({ handleOpenDrawer }) => {
   const theme = useTheme();
+  const isMdScreen = useMediaQuery(theme.breakpoints.down("md"));
   const dispatch = useDispatch();
   const [mode, setMode] = useState("light");
 
@@ -22,36 +32,60 @@ const Settings = ({ handleOpenDrawer }) => {
     <div
       style={{
         display: "flex",
-        justifyContent: "end",
-        backgroundColor: theme.palette.background.default,
-        minHeight: "100vh",
-        // alignItems: "end",
-        width: "30px",
+        flexDirection: "column",
+        background: `linear-gradient(135deg, ${theme.palette.secondary.main} 5%, ${theme.palette.tertiary.main} 115%)`,
+        justifyContent: "space-between",
+        width: "60px",
+        height: "90vh",
+        overflow: "hidden",
+        margin: "1rem",
+        zIndex: 9999,
+        borderRadius: "16px",
       }}
     >
-      <IconButton
-        size="large"
-        aria-label="menu"
-        aria-controls="menu-appbar"
-        aria-haspopup="true"
-        onClick={handleOpenDrawer}
-        color="inherit"
+      {isMdScreen ? (
+        <Button onClick={handleOpenDrawer} color="inherit">
+          <MenuIcon />
+        </Button>
+      ) : (
+        <Button></Button>
+      )}
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+        }}
       >
-        {/* <MenuIcon />s */}
-        sac{" "}
-      </IconButton>
-      <IconButton
-        onClick={handleModeChange}
-        sx={{ transition: "transform 0.3s ease" }}
-      >
-        <Fade in={mode === "light"} timeout={500}>
-          <Brightness7 sx={{ transition: "opacity 0.5s ease" }} />
-        </Fade>
-        <Fade in={mode === "dark"} timeout={500}>
-          <Brightness4 sx={{ transition: "opacity 0.5s ease" }} />
-        </Fade>
-      </IconButton>
-      <Grid>dscasxasx</Grid>
+        <Button
+          onClick={handleModeChange}
+          sx={{ transition: "transform 0.3s ease", padding: "6px" }}
+        >
+          {mode === "light" ? (
+            <Fade in={mode === "light"} timeout={500}>
+              <img
+                src={LightSwitch}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  transition: "opacity 0.5s ease",
+                }}
+              />
+            </Fade>
+          ) : (
+            <Fade in={mode === "dark"} timeout={500}>
+              <img
+                src={DarkSwitch}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  transition: "opacity 0.5s ease",
+                }}
+              />
+            </Fade>
+          )}
+        </Button>
+      </div>
     </div>
   );
 };
