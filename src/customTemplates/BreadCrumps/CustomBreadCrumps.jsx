@@ -16,36 +16,40 @@ const CustomBreadCrumps = ({ handleOpenDrawer }) => {
   const isMdScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-      }}
-    >
-      <Breadcrumbs aria-label="breadcrumb">
-        <Link
-          underline="hover"
-          color="inherit"
-          onClick={() => navigate("/")}
-          style={{ cursor: "pointer" }}
-        >
-          Home
-        </Link>
-
-        {mainTab && (
+    <div>
+      <div
+        style={{
+          backgroundColor: theme.palette.background.default,
+          position: "fixed",
+          padding: "0.5rem 3rem 0.5rem 0.2rem",
+          borderRadius: "8px",
+        }}
+      >
+        <Breadcrumbs aria-label="breadcrumb">
           <Link
             underline="hover"
             color="inherit"
-            onClick={() => navigate(`/admin?active=${mainTab}`)}
+            onClick={() => navigate("/")}
             style={{ cursor: "pointer" }}
           >
-            {mainTab}
+            Home
           </Link>
-        )}
 
-        {subTab && <Typography color="text.primary">{subTab}</Typography>}
-      </Breadcrumbs>
+          {mainTab && (
+            <Link
+              underline="hover"
+              color="inherit"
+              onClick={() => navigate(`/admin?active=${mainTab}`)}
+              style={{ cursor: "pointer" }}
+            >
+              {mainTab}
+            </Link>
+          )}
+
+          {subTab && <Typography color="text.primary">{subTab}</Typography>}
+        </Breadcrumbs>
+      </div>
+
       {isMdScreen && (
         <div
           onClick={handleOpenDrawer}
@@ -60,6 +64,9 @@ const CustomBreadCrumps = ({ handleOpenDrawer }) => {
             cursor: "pointer",
             transition: "all 0.3s ease-in-out",
             padding: "2px 6px",
+            position: "fixed",
+            right: 10,
+            top:20
           }}
           onKeyDown={(e) => e.key === "Enter" && handleOpenDrawer()}
         >

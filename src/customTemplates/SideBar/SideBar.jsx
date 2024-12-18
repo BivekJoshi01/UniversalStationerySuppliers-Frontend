@@ -45,7 +45,10 @@ const SideBar = ({ handleCloseDrawer }) => {
     setMainTab("");
     setSubTab("");
     setOpenSubTabs("");
-    navigate(`?headTab=${newValue}`);
+    const url = `?headTab=${newValue}&active=${mainTab}`;
+    const fullUrl = subTab ? `${url}&subTab=${subTab}` : url;
+
+    navigate(fullUrl);
   };
 
   const handleMainTabChange = (event, newValue) => {
@@ -92,9 +95,9 @@ const SideBar = ({ handleCloseDrawer }) => {
     fontSize: "1rem",
     fontWeight: 900,
     "&:hover": {
-      background: "linear-gradient(90deg, #f1f1f1, #e9ecef)",
-      color: "#000",
+      background: theme.palette.background.alt,
       cursor: "pointer",
+      borderRadius: "10px",
     },
   };
   const activeTabHeadStyle = {
@@ -112,7 +115,7 @@ const SideBar = ({ handleCloseDrawer }) => {
   };
 
   return (
-    <Box sx={{ margin: "6px" }}>
+    <Box sx={{ margin: "6px 0" }}>
       <TabContext value={headTab}>
         <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
           <TabList
@@ -150,7 +153,7 @@ const SideBar = ({ handleCloseDrawer }) => {
                 orientation="vertical"
                 indicatorColor="none"
               >
-                {userTabs?.map((tab) => (
+                {userTabs?.map((tab, index) => (
                   <React.Fragment key={tab.value}>
                     <Tab
                       label={

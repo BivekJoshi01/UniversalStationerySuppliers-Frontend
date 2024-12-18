@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import { useDispatch } from "react-redux";
 import ArrowBack from "@mui/icons-material/ArrowBack";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import SideBar from "../../../customTemplates/SideBar/SideBar";
 import CustomBreadCrumps from "../../../customTemplates/BreadCrumps/CustomBreadCrumps";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
@@ -22,9 +22,12 @@ import { toogleDarkMode } from "../../../redux/Slice/darkModeSlice";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LogoutIcon from "@mui/icons-material/Logout";
 import CompanyLogo from "../../../assets/CompanyIDAssets/UniversalLogo.jpeg";
+import LockPersonRoundedIcon from "@mui/icons-material/LockPersonRounded";
 
 const AdminLayout = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   const isMdScreen = useMediaQuery(theme.breakpoints.down("md"));
@@ -43,6 +46,10 @@ const AdminLayout = () => {
     toast.success(`Switched to ${newMode} mode`);
   };
 
+  const handleChangePassword = () => {
+    navigate(`change-password`);
+  };
+
   const actions = [
     {
       icon: <DarkModeIcon />,
@@ -50,9 +57,9 @@ const AdminLayout = () => {
       onClick: handleModeChange,
     },
     {
-      icon: <>zsx</>,
-      name: "Save",
-      onClick: () => console.log("Save action triggered"),
+      icon: <LockPersonRoundedIcon />,
+      name: "Change Password",
+      onClick: handleChangePassword,
     },
     {
       icon: <>zsx</>,
@@ -60,6 +67,7 @@ const AdminLayout = () => {
       onClick: () => console.log("Print action triggered"),
     },
   ];
+
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
       <Box sx={{ display: "flex", flexGrow: 1 }}>
@@ -98,7 +106,7 @@ const AdminLayout = () => {
                   <Typography variant="h6">Welcome, </Typography>
                 </Grid>
                 <Divider />
-                <SideBar handleCloseDrawer={handleCloseDrawer}/>
+                <SideBar handleCloseDrawer={handleCloseDrawer} />
               </div>
               <div
                 style={{
@@ -112,7 +120,9 @@ const AdminLayout = () => {
                   Logout
                 </Button>
                 <Divider />
-                <div style={{ display: "flex", alignItems: "center",gap:"6px" }}>
+                <div
+                  style={{ display: "flex", alignItems: "center", gap: "6px" }}
+                >
                   <div style={{ width: "50px", height: "50px" }}>
                     <img
                       src={CompanyLogo}
@@ -148,7 +158,8 @@ const AdminLayout = () => {
             }}
           >
             <CustomBreadCrumps handleOpenDrawer={handleOpenDrawer} />
-            <div style={{ marginTop: "1rem" }}>
+
+            <div style={{ marginTop: "3rem" }}>
               <Outlet />
             </div>
           </Box>
