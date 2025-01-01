@@ -1,12 +1,19 @@
-import React from "react";
+import React, { lazy } from "react";
 import { useLocation } from "react-router-dom";
-import AdminDashboard from "../../pages/Dashboard/AdminDashboard/AdminDashborad";
+import Loadable from "../../components/Loader/Loadable";
+import InventorySearch from "../../components/CustomFilter/InventorySearch";
+import ChangePassword from "../../pages/Auth/ChangePassword/ChangePassword";
+import ViewProfile from "../../pages/Profile/ViewProfile/ViewProfile";
+import EditProfile from "../../pages/Profile/EditProfile/EditProfile";
 
-const Dashboard = () => <AdminDashboard />;
+const AdminDashboard = Loadable(
+  lazy(() => import("../../pages/Dashboard/AdminDashboard/AdminDashborad"))
+);
+
 const Item = ({ subTab }) => (
   <div>Settings Content for {subTab || "Default"}</div>
 );
-const Order = () => <div>Profile Content</div>;
+const Order = () => <InventorySearch />;
 const Waiter = () => <div>Waiter Profile Content</div>;
 const Cashier = () => <div>Cashier Profile Content</div>;
 
@@ -20,8 +27,21 @@ const AdminContent = () => {
 
   const renderContent = () => {
     switch (activeTab) {
+      /*----------------------------------PROFILE------------------------------------------------------------*/
+      case "Profile":
+        return <ViewProfile />;
+      case "Update Profile":
+        return <EditProfile />;
+      case "Change Password":
+        return <ChangePassword />;
+
+      /*----------------------------------MENU------------------------------------------------------------*/
       case "Dashboard":
-        return <Dashboard />;
+        return <AdminDashboard />;
+      /*----------------------------------SETTING------------------------------------------------------------*/
+      /*----------------------------------ANALYTICS------------------------------------------------------------*/
+      /*----------------------------------OTHERS------------------------------------------------------------*/
+
       case "Item":
         if (subTab === "Waiter") {
           return <Waiter />;

@@ -143,6 +143,13 @@ const SideBar = ({ handleCloseDrawer }) => {
               value="others"
               sx={headTab === "others" ? activeTabHeadStyle : tabHeadStyle}
             />
+            {user !== "ADMIN" && (
+              <Tab
+                icon={<BuildRoundedIcon />}
+                value="profile"
+                sx={headTab === "profile" ? activeTabHeadStyle : tabHeadStyle}
+              />
+            )}
           </TabList>
         </Box>
         <TabPanel value={headTab} sx={{ padding: "0" }}>

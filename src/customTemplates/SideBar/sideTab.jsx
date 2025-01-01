@@ -23,7 +23,6 @@ import BatchPredictionIcon from "@mui/icons-material/BatchPrediction";
 export const adminTab = {
   menu: [
     { label: "Dashboard", value: "Dashboard", icon: <BatchPredictionIcon /> },
-    { label: "Order", value: "Order", icon: <BatchPredictionIcon /> },
     {
       label: "Item",
       value: "Item",
@@ -34,6 +33,7 @@ export const adminTab = {
         { label: "Waiter", value: "Waiter", icon: <BatchPredictionIcon /> },
       ],
     },
+    { label: "Order", value: "Order", icon: <BatchPredictionIcon /> },
   ],
   setting: [
     { label: "Settings", value: "Settings" },
@@ -53,5 +53,10 @@ export const adminTab = {
   others: [
     { label: "Reports", value: "Reports" },
     { label: "Analytics", value: "Analytics" },
+  ],
+  profile: [
+    { label: "Profile", value: "Profile" },
+    // { label: "Update Profile", value: "UpdateProfile" },
+    { label: "Change Password", value: "Change Password" },
   ],
 };
